@@ -5,7 +5,8 @@
   "devDependencies": {
     "@azure/identity": "^4.13.1",
     "@azure/playwright": "^1.1.6",
-    "@playwright/test": "^1.60.0",
+    "@playwright/test": "^1.61.1",
+    "allure": "^3.13.2",
     "allure-commandline": "^2.42.1",
     "allure-playwright": "^3.9.0"
   }
