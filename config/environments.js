@@ -18,5 +18,7 @@ module.exports = {
     password: process.env.PASSWORD
 };
 
-console.log('Environment :', env);
-console.log('Base URL    :', process.env.BASE_URL);
+console.log("==================================");
+console.log(`Environment : ${env}`);
+console.log(`Base URL    : ${process.env.BASE_URL}`);
+console.log("==================================");

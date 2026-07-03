@@ -4,6 +4,19 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select Environment'
+        required: true
+        default: 'qa'
+        type: choice
+        options:
+          - qa
+          - uat
+          - staging
+          - prod
+          
 jobs:
   test:
     timeout-minutes: 60
@@ -19,10 +32,10 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       env:
+        ENV: ${{ github.event.inputs.environment || 'qa' }}
         BASE_URL: ${{ secrets.BASE_URL }}
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
-        ENV: qa
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: always()
