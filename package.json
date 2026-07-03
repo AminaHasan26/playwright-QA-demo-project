@@ -9,6 +9,14 @@
     "@playwright/test": "^1.61.1",
     "allure": "^3.13.2",
     "allure-commandline": "^2.42.1",
-    "allure-playwright": "^3.9.0"
+    "allure-playwright": "^3.9.0",
+    "cross-env": "^10.1.0"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:qa": "cross-env ENV=qa playwright test",
+    "test:uat": "cross-env ENV=dev playwright test",
+    "test:staging": "cross-env ENV=stage playwright test",
+    "test:prod": "cross-env ENV=production playwright test"
   }
 }
