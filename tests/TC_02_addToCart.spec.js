@@ -1,6 +1,6 @@
 import { URLS, USERS , PRODUCTS } from '../fixture/users'; 
 import {test,expect} from '../fixture/pageFixture';
-test.describe("Add To Cart Test", async()=>{
+test.describe("@regression Add To Cart Test", async()=>{
 test.beforeEach("loginAsStandardUser", async({page,loginPage}) =>{
     await loginPage.goto(URLS.loginUrl);
     console.log("Navigated to login page");

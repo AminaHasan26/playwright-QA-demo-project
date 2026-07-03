@@ -16,6 +16,17 @@ on:
           - uat
           - staging
           - prod
+      testSuite:
+        description: 'Select Test Suite'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - smoke
+          - regression
+          - sanity
+          - api    
           
 jobs:
   test:
@@ -32,11 +43,19 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       env:
-        ENV: ${{ github.event.inputs.environment || 'qa' }}
+        ENV: ${{ inputs.environment || 'qa' }}
         BASE_URL: ${{ secrets.BASE_URL }}
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
-      run: npx playwright test
+      run: |
+        echo "Environment : $ENV"
+        echo "Test Suite : ${{ inputs.testSuite }}"
+        if [ "${{ inputs.testSuite }}" = "all" ]; then
+          npx playwright test
+        else
+          npx playwright test --grep "@${{ inputs.testSuite }}"
+        fi
+        
     - uses: actions/upload-artifact@v4
       if: always()
       with:

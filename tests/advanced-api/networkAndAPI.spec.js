@@ -1,6 +1,6 @@
 import {test,expect,request} from '@playwright/test'
 
-test.describe("Advanced — Network and API Tests",()=>{
+test.describe("@api @regression Advanced — Network and API Tests",()=>{
 //Get Requests
     test("Get All users Returns 200", async({request})=>{
         const response = await request.get("https://jsonplaceholder.typicode.com/users");
@@ -23,7 +23,7 @@ test.describe("Advanced — Network and API Tests",()=>{
         console.log(user.name);
         }
     });
-    test ("Single User By ID", async ({request})=>{
+    test ("@smoke Single User By ID", async ({request})=>{
         const userId = 1;
         const response = await request.get(`https://jsonplaceholder.typicode.com/users/${userId}`);
         expect (response.status()).toBe(200);
