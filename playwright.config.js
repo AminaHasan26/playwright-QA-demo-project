@@ -10,7 +10,7 @@ module.exports = defineConfig({
   use: {
     baseURL : 'https://www.saucedemo.com/',
     browserName: 'chromium',
-    headless: false,
+    headless: true,
     screenshot: 'on',
     video: 'retain-on-failure',
     trace : 'on'
