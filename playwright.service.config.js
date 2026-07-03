@@ -25,5 +25,15 @@ export default defineConfig(
      ["html", { open: "never" }],
      ["@azure/playwright/reporter"],
      ],
+
+    use: {
+    baseURL : 'https://www.saucedemo.com/',
+    browserName: 'chromium',
+    headless: false,
+    screenshot: 'on',
+    video: 'retain-on-failure',
+    trace : 'on'
+    
+  }
   }
 );
