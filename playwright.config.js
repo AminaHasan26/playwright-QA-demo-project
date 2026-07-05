@@ -10,7 +10,7 @@ module.exports = defineConfig({
   retries: process.env.CI ? 2 : 0,
 
   use: {
-    //baseURL ,
+    baseURL ,
     browserName: 'chromium',
     headless: true,
     screenshot: 'only-on-failure',
