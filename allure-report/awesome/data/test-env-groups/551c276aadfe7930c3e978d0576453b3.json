@@ -1,1 +1,1 @@
-{"id":"551c276aadfe7930c3e978d0576453b3","fullName":"TC_01_loginTest.spec.js:21:5","name":"Error shown when fields are empty","status":"passed","testResultsByEnv":{"default":"b987fc6b2685cb4463686e9e04eaf6be"}}
+{"id":"551c276aadfe7930c3e978d0576453b3","fullName":"TC_01_loginTest.spec.js:21:5","name":"Error shown when fields are empty","status":"failed","testResultsByEnv":{"default":"5d32d7bd6ff9dc1a971c70d2f91de50e"}}

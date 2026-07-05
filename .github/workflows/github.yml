@@ -4,6 +4,9 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    - cron: '0 1 * * *'
+
   workflow_dispatch:
     inputs:
       environment:
@@ -48,11 +51,27 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
       run: |
-        echo "Environment : $ENV"
-        echo "Test Suite : ${{ inputs.testSuite }}"
-        if [ "${{ inputs.testSuite }}" = "all" ]; then
+        echo "=================================="
+        echo "GitHub Event : ${{ github.event_name }}"
+        echo "Environment  : $ENV"
+        echo "Test Suite   : ${{ inputs.testSuite }}"
+        echo "Runner       : $RUNNER_OS"
+        echo "=================================="
+
+        if [ "${{ github.event_name }}" = "push" ] || [ "${{ github.event_name }}" = "pull_request" ]; then
+          echo "Running Smoke Tests..."
+          npx playwright test --grep "@smoke"
+
+        elif [ "${{ github.event_name }}" = "schedule" ]; then
+          echo "Running Nightly Regression on QA..."
+          npx playwright test --grep "@regression"
+
+        elif [ "${{ inputs.testSuite }}" = "all" ]; then
+          echo "Running Complete Test Suite..."
           npx playwright test
+
         else
+          echo "Running ${{ inputs.testSuite }} Tests..."
           npx playwright test --grep "@${{ inputs.testSuite }}"
         fi
         

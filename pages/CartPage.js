@@ -25,8 +25,7 @@ class CartPage{
 
     async getItemCount(){
         return this.page.locator(selectors.cart.cartItems).count();
-
-    }
+}
 
     async getItemNames(){
         return this.page.locator(selectors.cart.itemNames).allTextContents();
@@ -47,7 +46,7 @@ class CartPage{
         if(!visible) return 0
         const textNum = await this.page.locator(selectors.cart.cartBadge).textContent();
         return parseInt(textNum,10);
-         }
+    }
 
     async clickToCheckout() {
     await this.page.locator(selectors.buttons.checkoutButton).click();

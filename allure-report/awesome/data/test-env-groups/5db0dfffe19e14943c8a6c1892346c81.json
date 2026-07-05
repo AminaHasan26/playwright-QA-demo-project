@@ -1,1 +1,1 @@
-{"id":"5db0dfffe19e14943c8a6c1892346c81","fullName":"TC_02_addToCart.spec.js:30:5","name":"cart badge should update after removing an item","status":"passed","testResultsByEnv":{"default":"adc9516eb081280a750b93adb9f75ef0"}}
+{"id":"5db0dfffe19e14943c8a6c1892346c81","fullName":"TC_02_addToCart.spec.js:30:5","name":"cart badge should update after removing an item","status":"failed","testResultsByEnv":{"default":"53afac6538f223bf508d04dc302257bd"}}

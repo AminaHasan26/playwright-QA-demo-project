@@ -1,1 +1,1 @@
-{"id":"7ef5f0de2d218c8456215594b202eddd","fullName":"TC_02_addToCart.spec.js:17:5","name":"cart page should contain the added product","status":"passed","testResultsByEnv":{"default":"2af493d47fa6a7fe59db4f72d2b1595a"}}
+{"id":"7ef5f0de2d218c8456215594b202eddd","fullName":"TC_02_addToCart.spec.js:17:5","name":"cart page should contain the added product","status":"failed","testResultsByEnv":{"default":"bc6599b7ea2ad982423f0684957bbe9d"}}
