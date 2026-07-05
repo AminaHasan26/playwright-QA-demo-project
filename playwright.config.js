@@ -7,14 +7,14 @@ module.exports = defineConfig({
   testDir: './tests',
 
   reporter: [["allure-playwright"],["html"]],
+  retries: process.env.CI ? 2 : 0,
 
   use: {
-    baseURL ,
+    //baseURL ,
     browserName: 'chromium',
     headless: true,
-    screenshot: 'on',
+    screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    trace : 'on'
-    
+    trace : 'on-first-retry'
   }
 });
